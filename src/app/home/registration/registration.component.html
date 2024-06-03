@@ -1,0 +1,62 @@
+<app-navigation></app-navigation>
+
+
+<h1 class="text-center mt-5">Regisztráció:</h1>
+
+<div class="d-flex justify-content-center mt-5">
+<form [formGroup]="registrationForm">
+
+    <div class="field">
+        <div class="input">
+            <label class="pe-2 pb-2 col-6" for="username">Felhasználónév: </label>
+            <input class="col-6" formControlName="username" type="text">
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                <div *ngIf="username.errors.required">A felhasználónév megadása kötelező.</div>
+                <div *ngIf="username.errors.minlength">A felhasználónévnek legalább 6 karakter hosszúnak kell lennie.</div>
+                <div *ngIf="username.errors.maxlength">A felhasználónév nem lehet hosszabb 12 karakternél.</div>
+            </div>
+        </div>
+        <div class="input">
+            <label class="pe-2 pb-2 col-6" for="email">Email cím: </label>
+            <input class="col-6" formControlName="email" type="text">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <div *ngIf="email.errors.required">Az email megadása kötelező.</div>
+                <div *ngIf="email.errors.email">Az email formátuma nem megfelelő.</div>
+            </div>
+        </div>
+        <div class="input">
+            <label class="pe-2 pb-2 col-6" for="firstName"> Keresztnév: </label>
+            <input class="col-6" formControlName="firstName" type="text">
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+                <div *ngIf="firstName.errors.required">A keresztnév megadása kötelező.</div>
+            </div>
+        </div>
+        <div class="input">
+            <label class="pe-2 pb-2 col-6" for="lastName">Vezetéknév: </label>
+            <input class="col-6" formControlName="lastName" type="text">
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+                <div *ngIf="lastName.errors.required">A vezetéknév megadása kötelező.</div>
+            </div>
+        </div>
+        <div class="input">
+            <label class="pe-2 pb-2 col-6" for="dateOfBirth">Születési dátum: </label>
+            <input class="col-6" formControlName="dateOfBirth" type="date">
+            <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)" class="text-danger">
+                <div *ngIf="dateOfBirth.errors.required">A születési dátum megadása kötelező.</div>
+                <div *ngIf="dateOfBirth.errors.minimumAge">A születési dátumnak legalább 12 évvel ezelőttinek kell lennie.</div>
+            </div>
+        </div>
+        <div class="input">
+            <label class="pe-2 col-6" for="language"> Nyelv: </label>
+            <input class="col-6" formControlName="language" type="text">
+            <div *ngIf="language.invalid && (language.dirty || language.touched)" class="text-danger">
+                <div *ngIf="language.errors.required">A nyelv megadása kötelező.</div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-2">
+        <button mat-raised-button color="primary" [disabled]="registrationForm.invalid" (click)="sendRegistration()">Küldés</button>
+    </div>
+
+</form>
+</div>

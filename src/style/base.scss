@@ -1,0 +1,46 @@
+@import "~style/variables.scss";
+
+html {
+  margin: auto;
+  overflow: hidden;
+  height: 100%;
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: Montserrat, sans-serif;
+
+}
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button {
+  background: $primaryColor !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.mat-raised-button.mat-button-disabled {
+  background: lightgray !important;
+}
+
+.secondary-button {
+  background: white !important;
+  color: $primaryColor !important;
+  font-weight: normal !important;
+  border: 1px solid $primaryColor !important;
+}
